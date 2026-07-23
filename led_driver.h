@@ -1,11 +1,3 @@
-/*
----
-itemId: LED-001
-itemType: Software Item Spec
-itemTitle: LED Driver Interface Specification
----
-*/
-
 typedef enum {
     LED_STATE_OFF,
     LED_STATE_ARMED
