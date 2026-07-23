@@ -3,8 +3,8 @@ itemId: LED-TC-001
 itemType: Test Case
 itemTitle: Red LED Off-State Verification
 itemTests:
-  - "DI-001: Red LED Indicates Alarm Off"
-  - "Spec-001: LED Driver state machine"
+  - KXITM55BPSD4PVF8N1VHFN1EM55KKCZ  # DI-001: Red LED Indicates Alarm Off
+  - KXITM4BJ1RTM5GQ8JXSB9Z37D5S9BWN  # Spec-001: LED Driver state machine
 ---
 
 # LED-TC-001: Red LED Off-State Verification
