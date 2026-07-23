@@ -1,3 +1,11 @@
+/*
+---
+itemId: LED-002
+itemType: Software Item Spec
+itemTitle: LED Driver Implementation Specification
+---
+*/
+
 #include "led_driver.h"
 #include "gpio.h"
 
