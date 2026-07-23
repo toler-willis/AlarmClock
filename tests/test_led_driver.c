@@ -18,7 +18,7 @@ void setUp(void) {
 
 void tearDown(void) {}
 
-/* @tests:LED-TC-001 */
+/* @tests:TC-001 */
 void test_off_state_lights_red_only(void) {
     set_led_state(LED_STATE_OFF);
     TEST_ASSERT_EQUAL_INT(HIGH, pin_state[PIN_RED]);
