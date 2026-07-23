@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Run tests
+        id: unity_run
+        continue-on-error: true
+        run: |
+          mkdir -p build/test-results
+          ./build/test_led_driver | tee build/test-results/unity.log
+
+      - name: Convert Unity output to JUnit XML
+        if: always()
+        run: |
+          python3 scripts/unity_to_junit.py \
+            build/test-results/unity.log \
+            build/test-results/junit.xml \
+            tests/test_led_driver.c
+
+      - name: Report to Ketryx
+        if: always()
+        uses: Ketryx/ketryx-github-action@v1
+        with:
+          api-key: ${{ secrets.KETRYX_API_KEY }}
+          project: ${{ vars.KETRYX_PROJECT_ID }}
+          build-name: ci-c
+          test-junit-path: build/test-results/junit.xml
+
+      - name: Fail if tests failed
+        if: steps.unity_run.outcome == 'failure'
+        run: exit 1

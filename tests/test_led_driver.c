@@ -1,8 +1,7 @@
 #include "unity.h"
-#include "../led_driver.h"
+#include "led_driver.h"
+#include "gpio.h"
 
-#define HIGH 1
-#define LOW  0
 #define PIN_RED   4
 #define PIN_GREEN 5
 
