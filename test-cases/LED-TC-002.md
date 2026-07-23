@@ -2,7 +2,9 @@
 itemId: LED-TC-002
 itemType: Test Case
 itemTitle: Green LED Armed-State Verification
-itemTests: DI-002, Spec-001
+itemTests:
+  - "DI-002: Green LED Indicates Alarm is Armed"
+  - "Spec-001: LED Driver state machine"
 ---
 
 # LED-TC-002: Green LED Armed-State Verification
