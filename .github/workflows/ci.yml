@@ -38,6 +38,7 @@ jobs:
         with:
           api-key: ${{ secrets.KETRYX_API_KEY }}
           project: ${{ vars.KETRYX_PROJECT_ID }}
+          ketryx-url: https://demo.ketryx.com
           build-name: ci-c
           test-junit-path: build/test-results/junit.xml
 
